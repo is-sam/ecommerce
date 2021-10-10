@@ -8,12 +8,15 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController
 {
+    /**
+     * @Route("/", name="index")
+     */
     public function index() {
         dd('ça marche');
     }
 
     /**
-     * @Route("/test/{age}", name="test", defaults={age: 0}, requirements={age: \d+})
+     * @Route("/test/{age}", name="test", defaults={"age"=0}, requirements={"age"="\d+"})
      */
     public function test(Request $request, int $age) {
         // dump($request);
