@@ -1,0 +1,7 @@
+# test:
+#   path: /test/{age}
+#   controller: App\Controller\DefaultController:test
+#   requirements:
+#     age: \d+
+#   defaults:
+#     age: 0
