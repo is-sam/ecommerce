@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Taxes\Calculator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,8 +12,9 @@ class DefaultController
     /**
      * @Route("/", name="index")
      */
-    public function index() {
-        dd('ça marche');
+    public function index(Calculator $calculator) {
+        $tva = $calculator->calculate(100);
+        return new Response("home page $tva");
     }
 
     /**
