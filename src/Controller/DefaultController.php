@@ -9,13 +9,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController
 {
-    /**
-     * @Route("/", name="index")
-     */
-    public function index(Calculator $calculator) {
-        $tva = $calculator->calculate(100);
-        return new Response("home page $tva");
-    }
+    // /**
+    //  * @Route("/", name="index")
+    //  */
+    // public function index(Calculator $calculator) {
+    //     $tva = $calculator->calculate(100);
+    //     return new Response("home page $tva");
+    // }
 
     /**
      * @Route("/test/{age}", name="test", defaults={"age"=0}, requirements={"age"="\d+"})

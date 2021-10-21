@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block body %}
+<div class="container pt-5 pb-5">
+    <h3>Meilleurs ventes</h3>
+    <div class="row">
+    {% for i in 1..3 %}
+        <div class="col">
+            <div class="card">
+                <img src="https://picsum.photos/200/200" alt="Image Produit" class="img-fluide">
+                <div class="card-body">
+                    <h4 class="card-title">Supère produit</h4>
+                    <p class="card-text text-justify">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, accusantium porro? Nobis architecto doloribus aperiam, non pariatur eos repellat velit sed, esse adipisci asperiores molestiae praesentium magni perspiciatis. Necessitatibus, cum?
+                    </p>
+                    <a href="#" class="btn btn-primary btn-sm">Détails</a>
+                    <a href="#" class="btn btn-success btn-sm">Ajouter</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+    <hr>
+
+    <h2>Nos Garanties</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore eos architecto rem ipsum commodi optio dolor, ea ab. Cum quasi modi voluptate deleniti totam, quia excepturi laboriosam vero ea iure.</p>
+
+    <div class="row">
+        {% include "shared/_home-badge.html.twig" with {
+            icon: 'fa-truck',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora velit nihil doloremque totam id!'
+        } %}
+
+        {% include "shared/_home-badge.html.twig" with {
+            icon: 'fa-check',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate at suscipit mollitia soluta totam laborum!'
+        } %}
+
+        {% include "shared/_home-badge.html.twig" with {
+            icon: 'fa-lock',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos vel a libero perspiciatis voluptate cumque.'
+        } %}
+    </div>
+</div>
+{% endblock %}

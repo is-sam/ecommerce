@@ -32,3 +32,7 @@ services:
     App\Taxes\Calculator:
         arguments:
             $tva: 15.0
+
+    App\Taxes\Detector:
+        arguments:
+            $minimum: 100

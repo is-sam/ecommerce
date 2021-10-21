@@ -7,6 +7,8 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
         {% endblock %}
 
         {% block javascripts %}
@@ -14,6 +16,7 @@
         {% endblock %}
     </head>
     <body>
+        {% include "shared/_navbar.html.twig" %}
         {% block body %}{% endblock %}
     </body>
 </html>
