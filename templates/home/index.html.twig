@@ -9,7 +9,7 @@
     {% for product in products %}
         <div class="col">
             <div class="card">
-                <img src="https://picsum.photos/200/200" alt="Image Produit" class="img-fluide">
+                <img src="{{ product.picture }}" alt="Image Produit" class="img-fluide">
                 <div class="card-body">
                     <h4 class="card-title">{{ product.name }}</h4>
                     <p class="card-text font-weight-bold">
@@ -19,7 +19,7 @@
                         {{ product.category.name }}
                     </p>
                     <p class="card-text text-justify">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, accusantium porro? Nobis architecto doloribus aperiam, non pariatur eos repellat velit sed, esse adipisci asperiores molestiae praesentium magni perspiciatis. Necessitatibus, cum?
+                        {{ product.description }}
                     </p>
                     <a href="#" class="btn btn-primary btn-sm">Détails</a>
                     <a href="#" class="btn btn-success btn-sm">Ajouter</a>

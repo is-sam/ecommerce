@@ -25,6 +25,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create('fr_FR');
+        $faker->addProvider(new \Bluemmb\Faker\PicsumPhotosProvider($faker));
 
 
         for ($p = 0; $p < 3; $p++) {
@@ -35,7 +36,7 @@ class AppFixtures extends Fixture
         }
 
         $manager->flush();
-        
+
         $categories = $manager->getRepository(Category::class)->findAll();
 
         for ($p = 0; $p < 10; $p++) {
@@ -44,6 +45,8 @@ class AppFixtures extends Fixture
             $product->setSlug(strtolower($this->slugger->slug($product->getName())));
             $product->setPrice(mt_rand(500, 12000));
             $product->setCategory($categories[mt_rand(0, count($categories) - 1)]);
+            $product->setDescription($faker->paragraph());
+            $product->setPicture($faker->imageUrl(400, 400, true));
             $manager->persist($product);
         }
 
