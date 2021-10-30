@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ProductRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -14,9 +15,13 @@ class HomeController extends AbstractController
      * Index Action
      * @Route("/", name="home_index")
      */
-    function index()
+    function index(ProductRepository $productRepository)
     {
-        return $this->render('home/index.html.twig');
+        $products = $productRepository->findAll();
+
+        return $this->render('home/index.html.twig', [
+            'products'  => $products
+        ]);
     }
     
 }

@@ -6,12 +6,15 @@
 <div class="container pt-5 pb-5">
     <h3>Meilleurs ventes</h3>
     <div class="row">
-    {% for i in 1..3 %}
+    {% for product in products %}
         <div class="col">
             <div class="card">
                 <img src="https://picsum.photos/200/200" alt="Image Produit" class="img-fluide">
                 <div class="card-body">
-                    <h4 class="card-title">Supère produit</h4>
+                    <h4 class="card-title">{{ product.name }}</h4>
+                    <p class="card-text font-weight-bold">
+                        {{ product.price / 100 }} €
+                    </p>
                     <p class="card-text text-justify">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, accusantium porro? Nobis architecto doloribus aperiam, non pariatur eos repellat velit sed, esse adipisci asperiores molestiae praesentium magni perspiciatis. Necessitatibus, cum?
                     </p>
