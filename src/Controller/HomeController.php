@@ -13,9 +13,9 @@ class HomeController extends AbstractController
 {
     /**
      * Index Action
-     * @Route("/", name="home_index")
+     * @Route("/", name="home_home")
      */
-    function index(ProductRepository $productRepository)
+    function home(ProductRepository $productRepository)
     {
         $products = $productRepository->findBy([], [], 3);
 
