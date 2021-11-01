@@ -44,9 +44,9 @@ class AppFixtures extends Fixture
 
         for ($p = 0; $p < self::NUM_USERS; $p++) {
             $user = new User();
-            $user->setEmail($faker->email());
+            $user->setEmail("user$p@mail.com");
             $user->setFullName($faker->name());
-            $user->setPassword($this->encoder->encodePassword($user, $faker->password()));
+            $user->setPassword($this->encoder->encodePassword($user, "user$p"));
             $manager->persist($user);
         }
 
