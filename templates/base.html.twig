@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>E-Commerce | {% block title %}Welcome!{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -18,5 +18,21 @@
     <body>
         {% include "shared/_navbar.html.twig" %}
         {% block body %}{% endblock %}
+        {% for type, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed;z-index: 999;bottom: 50px;right: 50px;">
+                    <div class="toast-header">
+                        <strong class="me-auto">{{ type }}</strong>
+                        <small>11 mins ago</small>
+                        <button type="button" class="btn-close ms-2 mb-1" data-bs-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="toast-body">
+                        {{ message }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
     </body>
 </html>

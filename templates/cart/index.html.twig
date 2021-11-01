@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cart{% endblock %}
+
+{% block body %}
+<div class="container pt-5 pb-5">
+    <h1>Cart</h1>
+
+    {% if cart %}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Price</th>
+                <th scope="col">Qty</th>
+                <th scope="col" class="text-center">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart %}
+            <tr class="table-default">
+                <td>{{ item.product.name }}</th>
+                <td>{{ item.product.price / 100 }} €</td>
+                <td>
+                    <a class="btn" href="{{ path('cart_remove', {id: item.product.id}) }}">
+                        <i class="fas fa-minus"></i>
+                    </a>
+                    {{ item.qty }}
+                    <a class="btn" href="{{ path('cart_add', {id: item.product.id}) }}">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </td>
+                <td class="text-center">{{ item.product.price * item.qty / 100 }} €</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr class="table-dark">
+                <td>TOTAL</th>
+                <td></td>
+                <td></td>
+                <td class="text-center">{{ total / 100 }} €</td>
+            </tr>
+        </tfoot>
+    </table>
+    <a href="{{ path('cart_clear') }}" class="btn btn-primary">Clear Cart</a>
+    {% else %}
+        <p>Your cart is empty</p>
+    {% endif %}
+    
+</div>
+{% endblock %}
