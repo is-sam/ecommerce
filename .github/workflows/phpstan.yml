@@ -5,6 +5,9 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+    
+env:
+  DATABASE_URL: ""
 
 jobs:
   build:
@@ -13,14 +16,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
-      - name: Check Symfony Env
-        run: echo $APP_ENV
           
       - name: Install Composer Dependencies
-        uses: ramsey/composer-install@v1
-        with:
-          composer-options: "--ignore-platform-reqs"
+        run: composer install
 
       - name: Run PHP Stan
         run: vendor/bin/phpstan analyse src --level=10
