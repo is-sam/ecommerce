@@ -16,6 +16,8 @@ jobs:
 
       - name: Install Composer Dependencies
         run: composer install --ignore-platform-reqs
+        env:
+          DATABASE_URL: ${{secrets.DATABASE_URL}}
 
       - name: Run PHP Stan
         run: composer run-script phpstan
