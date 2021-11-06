@@ -1,4 +1,6 @@
 {
+    "name": "is-sam/ecommerce",
+    "description": "E-Commerce project with Symfony 5 by is-sam",
     "type": "project",
     "license": "proprietary",
     "require": {
