@@ -7,12 +7,15 @@ on:
     branches: [ master ]
 
 jobs:
-  greet:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
+      - name: Check Symfony Env
+        run: php bin/console about
           
       - name: Install Composer Dependencies
         uses: ramsey/composer-install@v1
