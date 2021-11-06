@@ -76,6 +76,6 @@ class MyCustomAuthenticator extends AbstractGuardAuthenticator
 
     public function supportsRememberMe()
     {
-        // todo
+        return false;
     }
 }

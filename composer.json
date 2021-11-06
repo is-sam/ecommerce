@@ -67,6 +67,7 @@
         "setup-db": [
             "php bin/console doctrine:migrations:migrate --no-interaction"
         ],
+        "phpstan": "vendor/bin/phpstan analyse src",
         "post-install-cmd": [
             "@auto-scripts"
         ],
