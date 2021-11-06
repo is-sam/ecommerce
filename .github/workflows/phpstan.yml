@@ -20,4 +20,4 @@ jobs:
           DATABASE_URL: ${{secrets.DATABASE_URL}}
 
       - name: Run PHP Stan
-        run: vendor/bin/phpstan analyse src
+        run: composer run-script phpstan
