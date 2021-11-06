@@ -11,8 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Send greeting
-        run: echo "Hello ${{ github.event.inputs.name }}"
+      - name: PWD
+        run: pwd
+        
+      - name: LS
+        run: ls
 
-      - name: OSKAR-phpstan
+      - name: Run PHP Stan
         run: vendor/bin/phpstan analyse src --level=10
