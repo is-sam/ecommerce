@@ -15,4 +15,4 @@ jobs:
         run: echo "Hello ${{ github.event.inputs.name }}"
 
       - name: OSKAR-phpstan
-        uses: OskarStark/phpstan-ga@1.0.1
+        run: vendor/bin/phpstan analyse src --level=10
